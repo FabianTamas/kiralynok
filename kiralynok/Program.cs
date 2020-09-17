@@ -40,12 +40,13 @@ namespace kiralynok
             {
                 int sor = vel.Next(0,8);
                 int oszlop = vel.Next(0,8);
-                if (T[sor, oszlop] == '#')
+                while (T[sor, oszlop] == 'K')
                 {
-                    T[sor, oszlop] = 'K';
+                    sor = vel.Next(0, 8);
+                    oszlop = vel.Next(0, 8);
                 }
+                T[sor, oszlop] = 'K';
             }
-            
         }
 
         public void FajlbaIr()
