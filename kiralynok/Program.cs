@@ -71,25 +71,40 @@ namespace kiralynok
         public bool UresOszlop(int oszlop)
         {
             int i = 0;
-            bool van = false;
-            while (T[i, oszlop] == '#' && !van)
+            while (i < 8 && T[i, oszlop] == '#')
             {
-                if (oszlop == 'K')
-                {
-                    van = true;
-                }
                 i++;
             }
-            if (van)
+            if (i<8)
             {
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
-        //public bool UresSor(int sor)
-        //{
-            
-        //}
+        
+        public bool UresSor(int sor)
+        {
+            int i = 0;
+            while (i < 8 && T[sor, i] == '#')
+            {
+                i++;
+            }
+            if (i < 8)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Van királynő");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Nincs királynő");
+                return false;
+            }
+        }
     }
     class Program
     {
@@ -102,11 +117,17 @@ namespace kiralynok
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
             Console.WriteLine();
-            t.Elhelyez(64);
+            Console.Write("Mennyi királynőt szeretnél elhelyezni? ");
+            t.Elhelyez(int.Parse(Console.ReadLine()));
             Console.WriteLine();
             t.Megjelenit();
             Console.WriteLine();
-            t.UresOszlop(1);
+            Console.Write("Hányadik oszlopban keresel? ");
+            t.UresOszlop(int.Parse(Console.ReadLine()));
+            Console.WriteLine();
+            Console.Write("Hányadik sorban keresel? ");
+            t.UresSor(int.Parse(Console.ReadLine()));
+            Console.WriteLine();
 
             Console.ReadKey();
         }
