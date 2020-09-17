@@ -68,15 +68,28 @@ namespace kiralynok
             }
         }
 
-        public int UresOszlop()
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            int i = 0;
+            bool van = false;
+            while (T[i, oszlop] == '#' && !van)
+            {
+                if (oszlop == 'K')
+                {
+                    van = true;
+                }
+                i++;
+            }
+            if (van)
+            {
+                return true;
+            }
+            else return false;
         }
-
-        public int UresSor()
-        {
-            return 0;
-        }
+        //public bool UresSor(int sor)
+        //{
+            
+        //}
     }
     class Program
     {
@@ -88,9 +101,12 @@ namespace kiralynok
 
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
+            Console.WriteLine();
             t.Elhelyez(64);
             Console.WriteLine();
             t.Megjelenit();
+            Console.WriteLine();
+            t.UresOszlop(1);
 
             Console.ReadKey();
         }
