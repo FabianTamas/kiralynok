@@ -35,7 +35,7 @@ namespace kiralynok
             //    - Elhelyezzük a "K"-t csak akkor
             //           HA!!! ÜRES -> "#"
 
-            Random vel = new Random();
+            Random vel = new Random(Guid.NewGuid().GetHashCode());
             for (int i = 0; i < N; i++)
             {
                 int sor = vel.Next(0,8);
