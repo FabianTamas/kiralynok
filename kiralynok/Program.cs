@@ -94,14 +94,10 @@ namespace kiralynok
             }
             if (i < 8)
             {
-                Console.WriteLine();
-                Console.WriteLine("Van királynő");
                 return true;
             }
             else
             {
-                Console.WriteLine();
-                Console.WriteLine("Nincs királynő");
                 return false;
             }
         }
@@ -128,6 +124,24 @@ namespace kiralynok
             Console.Write("Hányadik sorban keresel? ");
             t.UresSor(int.Parse(Console.ReadLine()));
             Console.WriteLine();
+            Console.WriteLine("Az üres oszlopok és sorok száma: ");
+            Console.WriteLine();
+
+            int uresSor = 0;
+            int uresOszlop = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (t.UresOszlop(i))
+                {
+                    uresOszlop++;
+                }
+                if (t.UresSor(i))
+                {
+                    uresSor++;
+                }
+            }
+            Console.WriteLine("Üres oszlopok száma: {0} Üres sorok száma: {1}", uresOszlop,uresSor);
 
             Console.ReadKey();
         }
